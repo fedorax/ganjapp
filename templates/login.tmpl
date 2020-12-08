@@ -1,0 +1,36 @@
+{! template "header" . !}
+{! template "navbar-empty" . !}
+        {! if .message !}
+            <div class="container mt-5 text-center">
+                <div class="row">
+                    <div class="col">
+                        <div class="alert alert-warning" role="alert">
+                            <i class="fas fa-exclamation-triangle"></i> {! .message !}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {! end !}
+        <div class="container text-center" style="height: 300px; max-width: 300px;">
+            <div class="row">
+                <div class="col-sm{! if .message !}{! else !} mt-5{! end !}">
+                    <form method="post" action="/auth/authenticate">
+                        <h4 class="text-center"><i class="fas fa-sign-in-alt mb-4"></i> Login</h4>
+                        <div class="input-group input-group-lg mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="icon-user" style="width: 50px"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="email" class="form-control" name="username" placeholder="Username" aria-label="Username" aria-describedby="icon-user" required>
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="icon-password" style="width: 50px"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="password" class="form-control" name="password" placeholder="Password" aria-label="Password" aria-describedby="icon-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-success"><i class="fas fa-sign-in-alt"></i> Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+{! template "footer" . !}

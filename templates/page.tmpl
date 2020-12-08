@@ -1,0 +1,21 @@
+{! template "header" . !}
+{! template "navbar" . !}
+        <div id="app">
+            
+            <!-- Menu container -->
+            <ganjapp-menu :state="state"></ganjapp-menu>
+            
+            <!-- Toast container -->
+            <ganjapp-toast-container v-bind:toasts="state.toasts"></ganjapp-toast-container>
+            
+            <!-- Router View -->
+            <div id="app" class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <router-view v-bind:state="state"></router-view>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+{! template "footer" . !}

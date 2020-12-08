@@ -1,0 +1,40 @@
+
+body {
+  background-color: #E8F5E9;
+  background-image: url("07a32626.png");
+  margin-top: 65px;
+}
+
+.ganjapp-toast-container {
+  display: flex;
+  justify-content: right;
+}
+
+@media (min-width: 576px) {
+  .ganjapp-toast-container {
+    justify-content: center;
+  }
+}
+
+.ganjapp-toast-wrapper {
+  z-index: 999999;
+}
+
+.toast {
+  max-width: 768px;
+}
+
+@media (min-width: 768px) {
+  .toast {
+    max-width: 500px;
+  }
+}
+
+.no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}

@@ -1,0 +1,67 @@
+{! define "footer" !}
+
+        <script src="//code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+        <!-- Ganjapp JS -->
+        <script src="/assets/ganjapp.js"></script>
+
+        <script type="text/javascript">
+
+            /**
+            * Functions to copy text to the clipboard
+            */
+            
+            function fallbackCopyTextToClipboard(text) {
+                var textArea = document.createElement("textarea");
+                textArea.value = text;
+            
+                // Avoid scrolling to bottom
+                textArea.style.top = "0";
+                textArea.style.left = "0";
+                textArea.style.position = "fixed";
+
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+
+                try {
+                    if(document.execCommand('copy')) {
+                        if(alertText) {
+                            alert(alertText);
+                        }
+                    } else {
+                        alert('Unable to copy "' + text + '" to clipboard!');
+                    }
+                } catch (err) {
+                    alert('Unable to copy "' + text + '" to clipboard!');
+                }
+
+                document.body.removeChild(textArea);
+            }
+
+            function copyTextToClipboard(text, alertText) {
+                if (!navigator.clipboard) {
+                    fallbackCopyTextToClipboard(text, alertText);
+                    return;
+                }
+                navigator.clipboard.writeText(text).then(function() {
+                    if(alertText) {
+                        alert(alertText);
+                    }
+                }, function(err) {
+                    alert('Unable to copy "' + text + '" to clipboard!');
+                });
+            }
+
+            /**
+                const url = new URL('/events', window.location.origin + window.location.pathname);
+                const eventSource = new EventSource(url);
+                // The callback will be called every time an update is published
+                eventSource.onmessage = e => console.log(e); // do something with the payload
+            */
+        </script>
+
+    </body>
+</html>{! end !}
